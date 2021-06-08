@@ -1,7 +1,7 @@
 from operator import attrgetter
 
 import numpy as np
-import tqdm.notebook as tq
+from tqdm import tqdm
 
 from neupy.utils import format_data
 from neupy.exceptions import StopTraining
@@ -348,7 +348,7 @@ class GrowingNeuralGas(BaseNetwork):
         total_error = 0
         did_update = False
 
-        for sample in tq.tqdm(X_train):
+        for sample in tqdm(X_train):
             nodes = graph.nodes
             weights = np.concatenate([node.weight for node in nodes])
 
